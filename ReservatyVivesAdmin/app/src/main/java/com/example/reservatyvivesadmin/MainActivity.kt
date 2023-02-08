@@ -1,7 +1,10 @@
 package com.example.reservatyvivesadmin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -69,12 +72,11 @@ class MainActivity : AppCompatActivity() {
                     it.currentUser?.displayName  //ponemos el nombre del usuario en la toolbar
                 binding.textInit.visibility = View.VISIBLE  //haer visible...
             } else {
-                //si el usuario no esta autenticado entonces
-                //crear la lista de todas las formas de autentificacion
                 val providers = arrayListOf(
                     AuthUI.IdpConfig.EmailBuilder().build(),    //email
-                    AuthUI.IdpConfig.GoogleBuilder().build()
-                ) //google
+                    AuthUI.IdpConfig.GoogleBuilder().build(),
+                )
+                //google
 
                 //lanzar el intent para mostrar todas las formas de logueo
                 resultLauncher.launch(//este bloque es el intent para mostrar el logeado
@@ -87,9 +89,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    // Menú salir
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.salirItem -> {
+                AuthUI.getInstance().signOut(this)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
-    //variable para evaluar el resultado del intent
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        AuthUI.getInstance().signOut(this)
+    }
 
     // ciclo de vida
     override fun onResume() {
