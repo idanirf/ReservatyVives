@@ -5,43 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageViewSala"
+    <TextView
+        android:id="@+id/textViewNombreUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="Nombre Usuario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombreSala" />
 
     <TextView
-        android:id="@+id/textViewNombre"
+        android:id="@+id/textViewNombreSala"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="37dp"
-        android:text="Nombre"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSala"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="23dp"
+        android:text="Nombre Sala"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewEdificio"
+        android:id="@+id/textViewFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="10dp"
-        android:text="Edificio"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSala"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="20dp"
+        android:text="Fecha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombreUsuario" />
 
-    <TextView
-        android:id="@+id/textViewLocalizacion"
+    <Button
+        android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="12dp"
-        android:text="Localización"
-        app:layout_constraintStart_toEndOf="@+id/imageViewSala"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEdificio" />
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="40dp"
+        android:text="Gestionar"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombreUsuario"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
