@@ -1,4 +1,4 @@
-package com.example.reservatyvivesadmin
+package com.example.reservatyvivesclient
 
 import org.junit.Test
 
