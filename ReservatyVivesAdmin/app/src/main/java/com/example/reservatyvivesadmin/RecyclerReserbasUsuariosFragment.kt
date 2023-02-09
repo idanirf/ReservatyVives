@@ -5,13 +5,17 @@ import android.view.*
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.reservatyvivesadmin.databinding.FragmentRecyclerReserbasUsuariosBinding
+import com.example.reservatyvivesadmin.databinding.FragmentRecyclerSalasBinding
 
 
-class RecyclerReserbasUsuariosFragment : Fragment(), MenuProvider {
+class RecyclerReserbasUsuariosFragment : Fragment() {
 
+  lateinit var binding: FragmentRecyclerReserbasUsuariosBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = FragmentRecyclerReserbasUsuariosBinding.inflate(layoutInflater)
 
     }
 
@@ -19,30 +23,19 @@ class RecyclerReserbasUsuariosFragment : Fragment(), MenuProvider {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recycler_reserbas_usuarios, container, false)
+
+
+        var binding = FragmentRecyclerReserbasUsuariosBinding.inflate(inflater, container, false)
+
+        binding.buttonVolverREserbasRecicler.setOnClickListener {
+            view?.let {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_recyclerReserbasUsuariosFragment_to_loggingFragment)
+            }
+        }
+
+        return binding.root
     }
 
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.menu, menu)
-    }
 
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        if(menuItem.itemId == R.id.salirItem){
-            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerReserbasUsuariosFragment_to_loggingFragment)}
-        }
-        if(menuItem.itemId == R.id.salas_itenMenu){
-            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerReserbasUsuariosFragment_to_recyclerSalasFragment)}
-        }
-        if(menuItem.itemId == R.id.gestionReserbasItemMenu){
-
-        }
-        if(menuItem.itemId == R.id.sesionIntemMenu){
-            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerReserbasUsuariosFragment_to_loggingFragment)}
-        }
-        if(menuItem.itemId == R.id.crearSalaItenMenu){
-            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerReserbasUsuariosFragment_to_createReserbationFragment)}
-        }
-        return true
-    }
 }
