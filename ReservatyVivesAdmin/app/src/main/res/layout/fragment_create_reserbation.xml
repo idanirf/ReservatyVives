@@ -24,7 +24,7 @@
         android:text="Rellena todos los datos para añadir una nueva sala:" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextTextNombreSala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="18px"
@@ -34,7 +34,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/editTextTextLocalizacionSala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="18px"
@@ -44,7 +44,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editTextTextEdificioSala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="18px"
@@ -54,7 +54,7 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/editTextNumberApertura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="18px"
@@ -64,13 +64,23 @@
         android:minHeight="48dp" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/editTextNumberCierre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="18px"
         android:ems="10"
         android:hint="Hora de cierre"
         android:inputType="number"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/imagenSala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="18px"
+        android:ems="10"
+        android:hint="Imagen"
+        android:inputType="textPersonName"
         android:minHeight="48dp" />
 
     <LinearLayout
