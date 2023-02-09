@@ -1,32 +1,16 @@
 package com.example.reservatyvivesadmin
 
 import android.os.Bundle
+import android.view.*
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.Navigation
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RecyclerSalasFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class RecyclerSalasFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class RecyclerSalasFragment : Fragment(), MenuProvider {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -37,23 +21,27 @@ class RecyclerSalasFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_recycler_salas, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RecyclerSalasFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RecyclerSalasFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        if(menuItem.itemId == R.id.salirItem){
+            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerSalasFragment_to_loggingFragment)}
+        }
+        if(menuItem.itemId == R.id.salas_itenMenu){
+
+        }
+        if(menuItem.itemId == R.id.gestionReserbasItemMenu){
+            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerSalasFragment_to_recyclerReserbasUsuariosFragment) }
+        }
+        if(menuItem.itemId == R.id.sesionIntemMenu){
+            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerSalasFragment_to_loggingFragment)}
+        }
+        if(menuItem.itemId == R.id.crearSalaItenMenu){
+            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerSalasFragment_to_createReserbationFragment)}
+        }
+
+        return true
     }
 }

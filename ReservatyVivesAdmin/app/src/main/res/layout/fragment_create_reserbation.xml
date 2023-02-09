@@ -80,7 +80,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonGuargarSala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="18px"
@@ -88,7 +88,7 @@
             android:text="Guardar" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonCancelarSala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="18px"
