@@ -34,6 +34,24 @@
         tools:src="@drawable/logo" />
 
     <Button
+        android:id="@+id/buttonSalas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salas" />
+
+    <Button
+        android:id="@+id/buttonReserbas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reserbas" />
+
+    <Button
+        android:id="@+id/buttonCrearNuevaSala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Nueva Sala" />
+
+    <Button
         android:id="@+id/exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

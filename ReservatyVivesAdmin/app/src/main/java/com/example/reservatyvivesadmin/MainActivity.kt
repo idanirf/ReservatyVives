@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.MenuProvider
+import androidx.navigation.Navigation
 import com.example.reservatyvivesadmin.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
@@ -70,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             if (it.currentUser != null) { //si el usuario ya esta autenticado
                 supportActionBar?.title =
                     it.currentUser?.displayName  //ponemos el nombre del usuario en la toolbar
-                binding.textInit.visibility = View.VISIBLE  //haer visible...
+
             } else {
                 val providers = arrayListOf(
                     AuthUI.IdpConfig.EmailBuilder().build(),    //email
@@ -89,20 +92,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    // Menú salir
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.salirItem -> {
-                AuthUI.getInstance().signOut(this)
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
 
 
     override fun onBackPressed() {
