@@ -18,6 +18,15 @@
         <action
             android:id="@+id/action_loggingFragment_to_recyclerReserbasUsuariosFragment"
             app:destination="@id/recyclerReserbasUsuariosFragment" />
+        <action
+            android:id="@+id/action_loggingFragment_to_recyclerSalasFragment2"
+            app:destination="@id/recyclerSalasFragment" />
+        <action
+            android:id="@+id/action_loggingFragment_to_createReserbationFragment2"
+            app:destination="@id/createReserbationFragment" />
+        <action
+            android:id="@+id/action_loggingFragment_to_recyclerReserbasUsuariosFragment2"
+            app:destination="@id/recyclerReserbasUsuariosFragment" />
     </fragment>
     <fragment
         android:id="@+id/recyclerSalasFragment"
@@ -32,6 +41,9 @@
             app:destination="@id/recyclerReserbasUsuariosFragment" />
         <action
             android:id="@+id/action_recyclerSalasFragment_to_loggingFragment"
+            app:destination="@id/loggingFragment" />
+        <action
+            android:id="@+id/action_recyclerSalasFragment_to_loggingFragment2"
             app:destination="@id/loggingFragment" />
     </fragment>
     <fragment
@@ -48,6 +60,9 @@
         <action
             android:id="@+id/action_createReserbationFragment_to_recyclerReserbasUsuariosFragment"
             app:destination="@id/recyclerReserbasUsuariosFragment" />
+        <action
+            android:id="@+id/action_createReserbationFragment_to_loggingFragment2"
+            app:destination="@id/loggingFragment" />
     </fragment>
     <fragment
         android:id="@+id/recyclerReserbasUsuariosFragment"
@@ -62,6 +77,9 @@
             app:destination="@id/recyclerSalasFragment" />
         <action
             android:id="@+id/action_recyclerReserbasUsuariosFragment_to_loggingFragment"
+            app:destination="@id/loggingFragment" />
+        <action
+            android:id="@+id/action_recyclerReserbasUsuariosFragment_to_loggingFragment2"
             app:destination="@id/loggingFragment" />
     </fragment>
 </navigation>

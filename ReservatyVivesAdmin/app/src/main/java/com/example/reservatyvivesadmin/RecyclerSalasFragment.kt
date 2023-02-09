@@ -27,7 +27,7 @@ class RecyclerSalasFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         if(menuItem.itemId == R.id.salirItem){
-            view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerSalasFragment_to_loggingFragment)}
+           view?.let { Navigation.findNavController(it.rootView).navigate(R.id.action_recyclerSalasFragment_to_loggingFragment)}
         }
         if(menuItem.itemId == R.id.salas_itenMenu){
 
