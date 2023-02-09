@@ -6,9 +6,15 @@
     android:orientation="vertical"
     tools:context=".RecyclerSalasFragment" >
 
+    <Button
+        android:id="@+id/buttonVolverSalasRecicler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menú principal" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
