@@ -3,7 +3,8 @@
 
     <item
         android:id="@+id/salas_itenMenu"
-        android:title="Salas" />
+        android:title="Salas"
+        />
     <item
         android:id="@+id/crearSalaItenMenu"
         android:title="Crear Sala" />
