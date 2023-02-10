@@ -15,11 +15,11 @@ tools:context=".RecyclerReserbasUsuariosFragment"
     android:layout_height="wrap_content"
     android:text="Volver al inicio" />
 
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:listitem="@layout/item_sala"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSalas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-    />
+        tools:listitem="@layout/item_sala" />
 
 </LinearLayout>
