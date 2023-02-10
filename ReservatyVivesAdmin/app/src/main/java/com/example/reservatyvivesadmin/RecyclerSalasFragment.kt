@@ -23,7 +23,7 @@ class RecyclerSalasFragment : Fragment() {
     ): View? {
         var binding = FragmentRecyclerSalasBinding.inflate(inflater, container, false)
 
-        binding.buttonVolverSalasRecicler.setOnClickListener {
+        binding.buttonVolverREserbasRecicler.setOnClickListener {
             view?.let {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_recyclerSalasFragment_to_loggingFragment)
