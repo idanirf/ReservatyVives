@@ -61,48 +61,46 @@ class RecyclerSalasFragment : Fragment(), ClickListenerInterface {
         //asi se hace para cojer los datos reactuvamente
         //getRpoductsInRealTime()
 
-        getProducts()
+        getAllSalas()
 
-        println(  " mi lista tiene ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡")
+        println(  " mi lista tiene  daniiiiiiiiiiii ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡")
         println( mlista.size )
+        setupRecylerView()
+        println( "EAAAA" )
 
+<<<<<<< Updated upstream
         //cargamos datos en el recicler
        // setupRecyclerView()
+=======
+>>>>>>> Stashed changes
 
     }
 
-    private fun setupRecyclerView() {
-        binding?.let{
-            mAdapter = SalasAdapter(mlista, this)
-            mLayoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
-            binding.recyclerSalas.apply {
-                setHasFixedSize(true)
-                layoutManager = mLayoutManager
-                adapter = mAdapter
-            }
+    private fun setupRecylerView() {
+        mAdapter = SalasAdapter(mutableListOf(), this)
+        binding.recyclerSalas.apply {
+            layoutManager = LinearLayoutManager(this.context)
+            adapter = mAdapter
+
         }
 
     }
 
-    private fun getProducts() {
 
-        println("entra en get products¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡")
+    private fun getAllSalas() {
         val db = FirebaseFirestore.getInstance()
-        //leia con p minuscula
-        db.collection("Salass")
-            //.whereEqualTo("category", "productos")
-            .get()
-            .addOnSuccessListener { documents ->
 
-                println("entra en obtener datos11111111111111111111111111111111")
-                for (document in documents) {
-                    var p = document.toObject(Sala::class.java) //convertir el document en objeto
-                    println("obtenemos producto " + p.toString())
-                    p.id = document.id.toString()
-                    println(p.toString())
-                    println("imprimimos sala obtenida en la lista 1111111111111111111111111111111")
-                    mlista.add(p)
+        db.collection("Salass")
+            .get()
+            .addOnSuccessListener { snapshots ->
+                for (document in snapshots){
+                    val sala = document.toObject(Sala::class.java)
+                    mlista.add(sala)
+                    println(mlista.size)
+                    mAdapter.add(sala)
+                    println("9999999999999999999999999999999999999999999999999999999999999999999999")
                 }
+<<<<<<< Updated upstream
                 binding?.let{
                     mAdapter = SalasAdapter(ArrayList<Sala>(), this)
                     mLayoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
@@ -116,13 +114,13 @@ class RecyclerSalasFragment : Fragment(), ClickListenerInterface {
                     mAdapter.add(it)
                 }
                 mAdapter.notifyDataSetChanged()
+=======
+>>>>>>> Stashed changes
 
             }
-            .addOnFailureListener {
-                Toast.makeText(this.context, "Error al consultar los datos", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener{
+                //Toast.makeText(this, "Error al consultar los datos", Toast.LENGTH_SHORT).show()
             }
     }
-
-
 
 }

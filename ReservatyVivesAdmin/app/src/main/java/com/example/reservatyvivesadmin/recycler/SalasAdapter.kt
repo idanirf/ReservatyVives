@@ -17,7 +17,7 @@ import com.example.reservatyvivesadmin.databinding.FragmentRecyclerSalasBinding
 import com.example.reservatyvivesadmin.databinding.ItemSalaBinding
 import com.example.reservatyvivesadmin.recycler.ClickListenerInterface
 
-class SalasAdapter(private var list: ArrayList<Sala>, private val clickListenerInterface: ClickListenerInterface)
+class SalasAdapter(private var list: MutableList<Sala>, private val clickListenerInterface: ClickListenerInterface)
     : RecyclerView.Adapter<SalasAdapter.ViewHolder>() {
 
     private lateinit var mContext: Context
