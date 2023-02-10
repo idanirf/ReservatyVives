@@ -67,11 +67,11 @@ class CreateReserbationFragment : Fragment() {
         db.collection("Salass")
             .add(s)
             .addOnSuccessListener {
-                Toast.makeText(activity, "Producto añadido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Sala añadida", Toast.LENGTH_SHORT).show()
 
             }
             .addOnFailureListener {
-                Toast.makeText(activity, "Error al insertar", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Error al insertar sala", Toast.LENGTH_SHORT).show()
             }
 
 

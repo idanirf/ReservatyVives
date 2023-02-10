@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_loggingFragment_to_createReserbationFragment"
             app:destination="@id/createReserbationFragment" />
+        <action
+            android:id="@+id/action_loggingFragment_to_newReservaClient"
+            app:destination="@id/newReservaClient" />
     </fragment>
     <fragment
         android:id="@+id/recyclerSalasFragment"
@@ -56,6 +59,14 @@
             app:destination="@id/loggingFragment" />
         <action
             android:id="@+id/action_recyclerReserbasUsuariosFragment_to_loggingFragment2"
+            app:destination="@id/loggingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newReservaClient"
+        android:name="com.example.reservatyvivesadmin.newReservaClient"
+        android:label="newReservaClient" >
+        <action
+            android:id="@+id/action_newReservaClient_to_loggingFragment"
             app:destination="@id/loggingFragment" />
     </fragment>
 </navigation>
