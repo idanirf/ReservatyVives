@@ -67,7 +67,7 @@ class RecyclerSalasFragment : Fragment(), ClickListenerInterface {
         println( mlista.size )
 
         //cargamos datos en el recicler
-        setupRecyclerView()
+       // setupRecyclerView()
 
     }
 
@@ -103,7 +103,20 @@ class RecyclerSalasFragment : Fragment(), ClickListenerInterface {
                     println("imprimimos sala obtenida en la lista 1111111111111111111111111111111")
                     mlista.add(p)
                 }
-                println( mAdapter.itemCount)
+                binding?.let{
+                    mAdapter = SalasAdapter(ArrayList<Sala>(), this)
+                    mLayoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+                    binding.recyclerSalas.apply {
+                        setHasFixedSize(true)
+                        layoutManager = mLayoutManager
+                        adapter = mAdapter
+                    }
+                }
+                mlista.forEach {
+                    mAdapter.add(it)
+                }
+                mAdapter.notifyDataSetChanged()
+
             }
             .addOnFailureListener {
                 Toast.makeText(this.context, "Error al consultar los datos", Toast.LENGTH_SHORT).show()
