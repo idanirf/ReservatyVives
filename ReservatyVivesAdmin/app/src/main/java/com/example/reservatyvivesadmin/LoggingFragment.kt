@@ -35,6 +35,9 @@ class LoggingFragment : Fragment() , MenuProvider{
         binding.buttonCrearNuevaSala .setOnClickListener {
             view?.let { Navigation.findNavController(binding.root).navigate(R.id.action_loggingFragment_to_createReserbationFragment)}
         }
+        binding.aAdirReserva.setOnClickListener {
+            view?.let { Navigation.findNavController(binding.root).navigate(R.id.action_loggingFragment_to_newReservaClient)}
+        }
 
         return binding.root
     }

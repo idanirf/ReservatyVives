@@ -19,15 +19,12 @@ class RecyclerReserbasUsuariosFragment : Fragment() {
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var binding = FragmentRecyclerReserbasUsuariosBinding.inflate(inflater, container, false)
 
-        binding.buttonVolverREserbasRecicler.setOnClickListener {
+
+        binding.buttonVolverSalasRecicler.setOnClickListener {
             view?.let {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_recyclerReserbasUsuariosFragment_to_loggingFragment)
@@ -36,6 +33,5 @@ class RecyclerReserbasUsuariosFragment : Fragment() {
 
         return binding.root
     }
-
-
+    
 }
