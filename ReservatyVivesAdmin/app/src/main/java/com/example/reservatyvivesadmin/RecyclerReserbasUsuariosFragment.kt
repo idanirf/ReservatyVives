@@ -33,5 +33,5 @@ class RecyclerReserbasUsuariosFragment : Fragment() {
 
         return binding.root
     }
-    
+
 }
