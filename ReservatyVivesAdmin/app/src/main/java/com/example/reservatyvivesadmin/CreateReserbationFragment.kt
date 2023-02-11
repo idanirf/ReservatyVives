@@ -1,17 +1,24 @@
 package com.example.reservatyvivesadmin
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.reservatyvivesadmin.databinding.FragmentCreateReserbationBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 
 class CreateReserbationFragment : Fragment() {
 
+ private lateinit var binding: FragmentCreateReserbationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,13 +30,20 @@ class CreateReserbationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var binding = FragmentCreateReserbationBinding.inflate(inflater, container, false)
+         binding = FragmentCreateReserbationBinding.inflate(inflater, container, false)
 
         binding.buttonCancelarSala.setOnClickListener {
             view?.let {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_createReserbationFragment_to_loggingFragment)
             }
+        }
+        binding.buttonAAdirImagen.setOnClickListener {
+            println("disteClic en el boton")
+            //abrir la galeria
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            resultLauncher.launch(intent)
         }
         binding.buttonGuargarSala.setOnClickListener {
 
@@ -55,6 +69,16 @@ class CreateReserbationFragment : Fragment() {
             }
         }
         return binding.root
+    }
+
+    //para trabajar las imagenes
+    private var photoSelectUri : Uri? = null
+
+    //combprobar el resultado del Intent para la imagen
+    private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            photoSelectUri = it.data?.data
+        }
     }
 
     private fun saveSala(s: Sala) {

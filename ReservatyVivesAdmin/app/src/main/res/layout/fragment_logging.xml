@@ -43,7 +43,7 @@
         android:id="@+id/buttonReserbas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reserbas" />
+        android:text="Reservas" />
 
     <Button
         android:id="@+id/buttonCrearNuevaSala"
@@ -56,11 +56,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salir" />
-
-    <Button
-        android:id="@+id/añadirReserva"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Añadir Reserva" />
 
 </LinearLayout>
